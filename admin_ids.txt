@@ -1,0 +1,55 @@
+require 'byebug'
+require 'io/console'
+require './user.rb'
+module Login
+ 	def Login.log
+        f=0
+        puts "\n\n\n\n\n\n\n\n"
+        puts "************************************************WELCOME TO THE LOGIN PAGE**********************************************"
+        puts "\n\n\n\n\n\n"
+        puts 'If You Want Close application then press:-0'
+        puts 'If you want to go Home page then press:- 1'
+        puts 'Enter your Mail'
+        email=gets.chomp
+        if email=='0'
+            exit
+        elsif email=='1'
+            a=A.new
+        else
+            f1=File.new('Singupdata.txt','r')
+            f2=f1.read
+            f1.close
+            f2=eval(f2)
+            for i in 0...f2.length do 
+                if f2[i]['mail']==email
+                    f+=1
+                    j=f2[i]['pas']
+                    Login.pass(email,j)
+                    break
+                end    
+            end
+        end
+        if f==0
+            p 'email not found'
+            sleep(1)
+            raise
+        end
+    rescue
+        retry
+    end
+    def Login.pass(email,j)
+        p 'Enter your pass'
+        askpas=STDIN.noecho(&:gets).chomp
+        if j==askpas
+            p 'login successfully'
+            User.u(email,askpas)
+        else
+            p 'incorrect password'
+            sleep(1)
+            raise
+        end
+    rescue
+        retry
+    end
+
+end
