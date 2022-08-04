@@ -8,7 +8,7 @@ $b=[]
 $z=1
 
 class A
-	include Login
+	include Login 
 	def initialize
 		begin
 		  print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"                

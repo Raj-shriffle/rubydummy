@@ -8,9 +8,9 @@ module Request
         fj=f1.read
         f1.close
       if dummyname!='a1b'
-        if fj.size==0
+        if fj.size==0 
             a=[]
-            ar=[]
+            ar=[] 
             h1={}
             a.push(dummyname)
             h1.store(n1,a)
